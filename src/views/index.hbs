@@ -1,0 +1,97 @@
+<div class="row">
+
+
+  <div class="col-md-6 ">
+    <div class="card card-body rounded">
+      <p class="card-text"><i class="far fa-comment text-success"></i> Mensajes de Whatsapp:
+        <em>{{messages.length}}</em></p>
+    </div>
+    {{#if messages}}
+    <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="messages">
+
+      {{#each messages}}
+      <li class="list-group-item list-group-item-dark list-group-item-action">
+        <div class="card border-success rounded ">
+          <div class="card-header text-white bg-success">
+            <p class="text-center"> <i class="fab fa-whatsapp"></i> {{From}}</p>
+          </div>
+          <div class="card-body">
+            {{#if Media}}
+
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src={{Media}} allowfullscreen></iframe>
+            </div>
+            {{/if}}
+            {{#if Body}}
+            <div class="card mt-1">
+              <p class="text-center">{{Body}}</p>
+            </div>
+
+            {{/if}}
+
+          </div>
+          <div class="card-footer">
+            <span>{{timeago createdAt}}</span>
+          </div>
+
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <div class="card">
+      <div class="card-body text-white bg-warning">
+        <p class="text-center"><i class="fas fa-comment-slash"></i> No tienes mensajes</p>
+      </div>
+    </div>
+
+    {{/if}}
+  </div>
+
+  <div class="col-md-6 ">
+    <div class="card card-body rounded">
+      <p class="card-text"> <i class="far fa-comment text-info"></i> Mensajes de Twitter: <em>{{tweets.length}}</em></p>
+
+    </div>
+    {{#if tweets}}
+
+
+    <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="tweets">
+    
+
+      {{#each tweets}}
+      <li class="list-group-item list-group-item-dark list-group-item-action">
+        <div class="card border-info rounded">
+             
+          <div class="card-body">
+           
+            {{#if Url}}
+          
+        <blockquote class="twitter-tweet"><p lang="es" dir="ltr"> <a href={{Url}}>{{DisplayUrl}}</a></p> <a href={{ExpandedUrl}}></a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+         {{else}}
+
+         
+
+          <blockquote class="twitter-tweet"><p lang="es" dir="ltr"><a href="https://twitter.com/{{User}}/status/{{IDmensaje}}"></a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            {{/if}}
+
+
+         
+          </div>
+        
+        </div>
+
+
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <div class="card">
+      <div class="card-body text-white bg-warning">
+        <p class="text-center"><i class="fas fa-comment-slash"></i> No tienes mensajes</p>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+</div>

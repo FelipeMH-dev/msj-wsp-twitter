@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #343a40;
+  background-image: url("../imagenes/fondoori.png");
+  background-repeat: repeat;
+  height: 100vh;
+}
+
+input[type="tel"] {
+  font-family: "text-security-disc";
+  -webkit-text-security: disc;
+}
+
+.avatar {
+  position: relative;
+  margin-top: 15px;
+  z-index: 100;
+}
+
+.avatar img {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  border: 5px solid rgba(0,0,30,0.8);
+}
