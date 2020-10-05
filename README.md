@@ -29,7 +29,7 @@ Debes copias ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/conso
 Necesitaras crear una cuenta de desarrollador en https://developer.twitter.com/en/apply-for-access tendras que esperar
 a que twitter valide tu cuenta.
 Cuando tengas acceso a tu cuenta de desarrollador crea un proyecto y luego obtienes la API KEY, APY KEY SECRET, ACCESS TOKEN & ACCESS TOKEN SECRET.
-Esta credenciales las utilizas en el archivo socket.js
+Estas credenciales las utilizas en el archivo socket.js
 
 
 # Recursos útiles
