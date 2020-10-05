@@ -25,7 +25,7 @@ Twilio necesita un dominio para llegar a nuestro servidor, es por ello que se ne
 
 
 # Variables de entorno para Twilio
-Debes copias ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console y generar un archivo .env en tu proyecto, agregas:
+Debes copiar ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console y generar un archivo .env en tu proyecto, agregas:
 
 * TWILIO_ACCOUNT_SID = ACCOUNT SID
 * TWILIO_AUTH_TOKEN = AUTH TOKEN 
