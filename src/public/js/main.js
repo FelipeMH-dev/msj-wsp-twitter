@@ -108,10 +108,42 @@ socket.on("tweet", (tweet) => {
   const li = document.createElement("li");
   li.className =
     "list-group-item twims list-group-item-action";
+const card = document.createElement("div");
+card.className= "card border-info rounded"
 
+const cardBody = document.createElement("div");
+cardBody.className= "card-body"
 
 
   if(tweet.tweet.entities.media){
+
+const blockquote = document.createElement("blockquote");
+blockquote.className="twitter-tweet"
+
+const pb = document.createElement("p");
+pb.lang = "es"
+pb.dir ="ltr"
+
+const ab1 = document.createElement("a");
+ab1.href  = tweet.tweet.entities.media[0].url
+ab1.appendChild(document.createTextNode(tweet.tweet.entities.media[0].display_url));
+pb.appendChild(ab1)
+
+const ab2 = document.createElement("a");
+ab2.href = tweet.tweet.entities.media[0].expanded_url ;
+
+blockquote.appendChild(pb)
+blockquote.appendChild(ab2)
+cardBody.appendChild(blockquote)
+const script =document.createElement("script")
+script.async;
+script.src = "https://platform.twitter.com/widgets.js"
+cardBody.appendChild(script)
+
+card.appendChild(cardBody)
+li.appendChild(card)
+messagesList.prepend(li);
+
     $.ajax({
       method: "POST",
       url: "http://localhost:3000/tweet",
@@ -128,6 +160,28 @@ socket.on("tweet", (tweet) => {
     });
   }else{
     console.log("entre aqui")
+
+const blockquote = document.createElement("blockquote");
+blockquote.className="twitter-tweet"
+
+const pb = document.createElement("p");
+pb.lang = "es"
+pb.dir ="ltr"
+
+const ab1 = document.createElement("a");
+ab1.href  = "https://twitter.com/" + tweet.tweet.user.screen_name + "/status/ " +tweet.tweet.id_str;
+pb.appendChild(ab1)
+blockquote.appendChild(pb)
+
+cardBody.appendChild(blockquote)
+const script =document.createElement("script")
+script.async;
+script.src = "https://platform.twitter.com/widgets.js"
+cardBody.appendChild(script)
+card.appendChild(cardBody)
+li.appendChild(card)
+messagesList.prepend(li);
+
     $.ajax({
       method: "POST",
       url: "http://localhost:3000/tweet",
