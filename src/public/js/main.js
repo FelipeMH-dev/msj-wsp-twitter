@@ -1,5 +1,6 @@
 const socket = io();
 
+
 Notification.requestPermission().then(function (result) {
   console.log(result);
 });
@@ -31,11 +32,35 @@ function notifyMe(message = "Hi there") {
 }
 
 socket.on("new message", (data) => {
+  ///const timeago = require("timeago.js");
   notifyMe("New SMS received");
   const messagesList = document.getElementById("messages");
   const li = document.createElement("li");
   li.className =
     "list-group-item list-group-item-warning list-group-item-action";
+
+  const card= document.createElement("div")
+  card.className = "card border-success rounded"
+
+  const cardHeader= document.createElement("div")
+  cardHeader.className = "card-header text-white bg-success"
+
+  const pH= document.createElement("p")
+  pH.className = "text-center"
+  const ipH= document.createElement("i")
+  ipH.className = "fab fa-whatsapp"
+
+  pH.appendChild(ipH)
+  pH.appendChild(document.createTextNode(data.From));
+  cardHeader.appendChild(pH)
+  //data.From = data.From.replace(/[0-9]/g, "x");
+  //const from = document.createElement("span");
+  card.appendChild(cardHeader)
+
+
+  const cardBody= document.createElement("div")
+  cardBody.className = "card-body"
+
 
   if (data.Media) {
     const div = document.createElement("div");
@@ -44,25 +69,33 @@ socket.on("new message", (data) => {
     iframe.className = "embed-responsive-item";
     iframe.src = data.Media;
     div.appendChild(iframe);
-    li.appendChild(div);
+    cardBody.appendChild(div);
+    
   }
 
-  const body = document.createElement("p");
-  body.appendChild(document.createTextNode(data.Body));
+  if(data.Body){
+    const div = document.createElement("div");
+    div.className = "card mt-1";
+    const body = document.createElement("p");
+    body.className="text-center"
+    body.appendChild(document.createTextNode(data.Body));
+    cardBody.appendChild(body)
+    
+  }
 
-  data.From = data.From.replace(/[0-9]/g, "x");
-  const from = document.createElement("span");
-  from.appendChild(document.createTextNode(data.From));
+  card.appendChild(cardBody)
 
-  const _id = document.createElement("span");
-  _id.appendChild(document.createTextNode(data._id));
+  const cardFooter= document.createElement("div")
+  cardFooter.className = "card-footer"
+  
+ // const _id = document.createElement("span");
+  //_id.appendChild(document.createTextNode(data._id));
   const createdAt = document.createElement("span");
+ //data.createdAt = timeago.format(data.createdAt)
   createdAt.appendChild(document.createTextNode(data.createdAt));
-
-  li.appendChild(body);
-  li.appendChild(from);
-  li.appendChild(_id);
-  li.appendChild(createdAt);
+  cardFooter.appendChild(createdAt)
+  card.appendChild(cardFooter)
+  li.appendChild(card)
   messagesList.prepend(li);
 });
 

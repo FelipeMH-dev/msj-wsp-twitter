@@ -17,7 +17,8 @@ process.stdin.on("data", function (data) {
 }); */
 
 const indexController = async (req, res) => {
-  fs.readFile('./videos/videodeprueba.mp4', function (err, data) {
+
+ /* fs.readFile('./videos/videodeprueba.mp4', function (err, data) {
     if (err)
       throw err;
     else {
@@ -28,7 +29,7 @@ const indexController = async (req, res) => {
           console.log(metadata);
       });
     }
-  });
+  });*/
   // Find all saved messages
   const messages = await SMS.find().sort("-createdAt").lean();
   console.log(messages);
@@ -84,6 +85,7 @@ const receiveMessage = async (req, res) => {
   console.log(req.body);
   // console.log(req.body.From)
   if (req.body.MediaUrl0) {
+    try{
     // Saving the SMS in database
     const savedSMS = await SMS.create({
       Body: req.body.Body,
@@ -92,13 +94,24 @@ const receiveMessage = async (req, res) => {
     });
 
     //emite un evento con el mensaje
-    getSocket().emit("new message", savedSMS);
+    getSocket().emit("new message", savedSMS); 
+    }catch(e){
+      console.log(e)
+    }
+   
   } else {
-    const savedSMS = await SMS.create({
-      Body: req.body.Body,
-      From: req.body.From,
-    });
-    getSocket().emit("new message", savedSMS);
+
+    try{
+      const savedSMS = await SMS.create({
+        Body: req.body.Body,
+        From: req.body.From,
+      });
+      getSocket().emit("new message", savedSMS);
+
+    }catch(e){
+      console.log(e)
+    }
+   
   }
 
   res.writeHead(200, { "Content-Type": "text/xml" });
