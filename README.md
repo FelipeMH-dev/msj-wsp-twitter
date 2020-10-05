@@ -47,3 +47,4 @@ Estas credenciales las utilizas en el archivo socket.js
 
 Se tomo como comienzo el prototipo de aplicación de mensajeria de FAZT https://www.youtube.com/watch?v=sw3CPCRk-XE 
 vayan a darle LIKE ;)
+Para comunicarse conmigo enviar email a mansillafelipe1993@gmail.com
