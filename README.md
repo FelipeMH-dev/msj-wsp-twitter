@@ -1,6 +1,13 @@
 # msj-wsp-twitter
 Prototipo recolector de mensajes en tiempo real de wsp y twitter
 
+Falta o por hacer:
+- Pintar los mensajes de Twitter en tiempo real, ya que solo los recibe y almacena en base de datos y los muestra al hacer un reload de pagina.
+- Guardar mensajes favoritos
+- Crear una vista donde se podra visualizar los mensajes favoritos
+
+
+
 
 # Software requerido
 * Nodejs
