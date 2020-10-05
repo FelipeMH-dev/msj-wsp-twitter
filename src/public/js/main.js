@@ -37,7 +37,7 @@ socket.on("new message", (data) => {
   const messagesList = document.getElementById("messages");
   const li = document.createElement("li");
   li.className =
-    "list-group-item list-group-item-warning list-group-item-action";
+    "list-group-item wspms list-group-item-action";
 
   const card= document.createElement("div")
   card.className = "card border-success rounded"
@@ -135,3 +135,5 @@ socket.on("tweet", (tweet) => {
   }
  
 });
+
+

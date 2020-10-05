@@ -2,15 +2,15 @@
 
 
   <div class="col-md-6 ">
-    <div class="card card-body rounded">
+    <div class="card card-body rounded bg-dark text-white">
       <p class="card-text"><i class="far fa-comment text-success"></i> Mensajes de Whatsapp:
-        <em>{{messages.length}}</em></p>
+        <em >{{messages.length}}</em></p>
     </div>
     {{#if messages}}
     <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="messages">
 
       {{#each messages}}
-      <li class="list-group-item list-group-item-dark list-group-item-action">
+      <li class="list-group-item fondowsp list-group-item-action">
         <div class="card border-success rounded ">
           <div class="card-header text-white bg-success">
             <p class="text-center"> <i class="fab fa-whatsapp"></i> {{From}}</p>
@@ -49,7 +49,7 @@
   </div>
 
   <div class="col-md-6 ">
-    <div class="card card-body rounded">
+    <div class="card card-body rounded bg-dark text-white">
       <p class="card-text"> <i class="far fa-comment text-info"></i> Mensajes de Twitter: <em>{{tweets.length}}</em></p>
 
     </div>
@@ -60,7 +60,7 @@
     
 
       {{#each tweets}}
-      <li class="list-group-item list-group-item-dark list-group-item-action">
+      <li class="list-group-item fondotwit list-group-item-action">
         <div class="card border-info rounded">
              
           <div class="card-body">
