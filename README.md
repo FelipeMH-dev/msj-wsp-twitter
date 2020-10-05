@@ -2,7 +2,7 @@
 Prototipo recolector de mensajes en tiempo real de WHATSAPP y TWITTER
 
 Falta o por hacer:
-- Pintar los mensajes de Twitter en tiempo real, ya que solo los recibe y almacena en base de datos y los muestra al hacer un reload de pagina.
+- Resolver problema de socket, al recibir twit emite mas de lo que deberia y repite el mismo mensaje
 - Guardar mensajes favoritos
 - Crear una vista donde se podra visualizar los mensajes favoritos
 
