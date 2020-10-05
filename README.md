@@ -45,6 +45,6 @@ Estas credenciales las utilizas en el archivo socket.js
 * https://www.twilio.com/docs/usage/webhooks/sms-webhooks
 
 
-Se tomo como comienzo el prototipo de aplicación de mensajeria de FAZT https://www.youtube.com/watch?v=sw3CPCRk-XE 
-vayan a darle LIKE ;)
+Se tomo como comienzo el prototipo de aplicación de mensajeria de FAZT https://www.youtube.com/watch?v=sw3CPCRk-XE ASI QUE VEANLO PARA QUE ENTIENDAN DE UNA MEJOR MANERA
+ALGUNAS PROCEDIMIENTOS Y vayan a darle LIKE ;).
 Para comunicarse conmigo enviar email a mansillafelipe1993@gmail.com
