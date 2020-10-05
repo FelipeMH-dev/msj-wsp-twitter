@@ -6,7 +6,8 @@ Prototipo recolector de mensajes en tiempo real de wsp y twitter
 * Nodejs
 * Mongodb
 * ngrok (en desarrollo, necesitas tener ngrok.exe en la carpeta de tu proyecto). 
-Twilio necesita un dominio para llegar a nuestro servidor, es por ello que se necesita de ngrok. \n
+Twilio necesita un dominio para llegar a nuestro servidor, es por ello que se necesita de ngrok.
+
   Pasos:
   - Ejecuta ngrok con el siguiente comando : .\ngrok http 3000
   - Copia la direccion que te entrega ngrok, ejemplo : https://4cbd1a02638f.ngrok.io
