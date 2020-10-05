@@ -33,7 +33,7 @@ function notifyMe(message = "Hi there") {
 
 socket.on("new message", (data) => {
   ///const timeago = require("timeago.js");
-  notifyMe("New SMS received");
+  notifyMe("Nuevo mensaje de Whatsapp");
   const messagesList = document.getElementById("messages");
   const li = document.createElement("li");
   li.className =
@@ -102,6 +102,14 @@ socket.on("new message", (data) => {
 socket.on("tweet", (tweet) => {
   console.log("tweet ->");
   console.log(tweet.tweet);
+
+  notifyMe("Nuevo mensaje de Twitter");
+  const messagesList = document.getElementById("tweets");
+  const li = document.createElement("li");
+  li.className =
+    "list-group-item twims list-group-item-action";
+
+
 
   if(tweet.tweet.entities.media){
     $.ajax({
