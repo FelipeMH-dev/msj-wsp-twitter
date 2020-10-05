@@ -9,7 +9,7 @@ Prototipo recolector de mensajes en tiempo real de wsp y twitter
 Twilio necesita un dominio para llegar a nuestro servidor, es por ello que se necesita de ngrok.
 
   Pasos:
-  - Ejecuta ngrok con el siguiente comando: .\ngrok http 3000
+  - Ejecuta ngrok con el siguiente comando: .\ngrok http 3000 (tienes que cambiar el puerto 3000 en caso que estes utilizando otro)
   - Copia la direccion que te entrega ngrok, ejemplo: https://4cbd1a02638f.ngrok.io
   - Recuerda que estara activa durante 8 horas
   - Ingresa a https://www.twilio.com/console/sms/whatsapp/sandbox  
