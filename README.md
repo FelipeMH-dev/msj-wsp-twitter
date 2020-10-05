@@ -19,13 +19,15 @@ Twilio necesita un dominio para llegar a nuestro servidor, es por ello que se ne
   - Ejecuta ngrok con el siguiente comando: .\ngrok http 3000 (tienes que cambiar el puerto 3000 en caso que estes utilizando otro)
   - Copia la direccion que te entrega ngrok, ejemplo: https://4cbd1a02638f.ngrok.io
   - Recuerda que estara activa durante 8 horas
+  - CONFIGURA TU NUMERO DE WHATSAPP en https://www.twilio.com/console/sms/whatsapp/learn te pediran enviar un mensaje predeterminado (join sound-inch por ejemplo)
+    a un numero (este es si no lo cambian -> +141552388) luego de completar el procedimiento...
   - Ingresa a https://www.twilio.com/console/sms/whatsapp/sandbox  
   - Copia la direccion en WHEN A MESSAGE COMES IN y agrega /sms
   - Deberia quedar asi:  https://4cbd1a02638f.ngrok.io/sms
 
-
 # Variables de entorno para Twilio
-Debes copiar ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console y generar un archivo .env en tu proyecto, agregas:
+
+Debes copiar ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console y luego debes generar un archivo .env en tu proyecto, agregas:
 
 * TWILIO_ACCOUNT_SID = ACCOUNT SID
 * TWILIO_AUTH_TOKEN = AUTH TOKEN 
