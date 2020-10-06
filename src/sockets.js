@@ -3,10 +3,10 @@ const socketIO = require("socket.io");
 
 var Twit = require("twit");
 var T = new Twit({
-  consumer_key: "CFBNtsIBflkbIMn5sCVqzqrQi",
-  consumer_secret: "2cmm9egAq6NkbPK5jOH0roeYy3lqr47RDYYPPltbmG1d6oZqTh",
-  access_token: "1251760929521483776-WO0s4IUb4vzyOI7cLNiQUnM1RlJu7R",
-  access_token_secret: "EZgV1XX7fuu0P5QBJVCm3SYDj1U9mtokZoP0kAgN7EoZL",
+  consumer_key: process.env.TWITTER_API_KEY,
+  consumer_secret: process.env.TWITTER_APY_KEY_SECRET,
+  access_token: process.env.TWITTER_ACCESS_TOKEN,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
   timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
   strictSSL: true, // optional - requires SSL certificates to be valid.
 });
