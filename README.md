@@ -32,9 +32,9 @@ Cuando tengas acceso a tu cuenta de desarrollador crea un proyecto y luego obtie
 Estas credenciales las utilizas en el archivo .env
 
 # Variables de entorno para Twilio y Twitter
-Debes copiar la API KEY, APY KEY SECRET, ACCESS TOKEN & ACCESS TOKEN SECRET de tu proyecto generado en tu cuenta desarrollador en twitter.
-Debes copiar ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console.
-Luego debes generar un archivo .env en tu proyecto, agregas:
+-Debes copiar la API KEY, APY KEY SECRET, ACCESS TOKEN & ACCESS TOKEN SECRET de tu proyecto generado en tu cuenta desarrollador en twitter.
+-Debes copiar ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console.
+-Luego debes generar un archivo .env en tu proyecto, agregas:
 
 * TWILIO_ACCOUNT_SID = ACCOUNT SID
 * TWILIO_AUTH_TOKEN = AUTH TOKEN
