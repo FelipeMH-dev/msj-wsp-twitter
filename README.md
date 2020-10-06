@@ -36,14 +36,14 @@ Estas credenciales las utilizas en el archivo .env
 * Debes copiar ACCOUNT SID y AUTH TOKEN de la consola https://www.twilio.com/console.
 * Luego debes generar un archivo .env en tu proyecto, agregas:
 
-- TWILIO_ACCOUNT_SID = ACCOUNT SID
-- TWILIO_AUTH_TOKEN = AUTH TOKEN
-- PHONE_NUMBER = (recibes un numero compartido el cual es +14155238886)
-- TWITTER_API_KEY = API KEY
-- TWITTER_APY_KEY_SECRET = APY KEY SECRET
-- TWITTER_ACCESS_TOKEN= ACCESS TOKEN
-- TWITTER_ACCESS_TOKEN_SECRET = ACCESS TOKEN SECRET 
-- PORT (optional)
+  - TWILIO_ACCOUNT_SID = ACCOUNT SID
+  - TWILIO_AUTH_TOKEN = AUTH TOKEN
+  - PHONE_NUMBER = (recibes un numero compartido el cual es +14155238886)
+  - TWITTER_API_KEY = API KEY
+  - TWITTER_APY_KEY_SECRET = APY KEY SECRET
+  - TWITTER_ACCESS_TOKEN= ACCESS TOKEN
+  - TWITTER_ACCESS_TOKEN_SECRET = ACCESS TOKEN SECRET 
+  - PORT (optional)
 
 
 
