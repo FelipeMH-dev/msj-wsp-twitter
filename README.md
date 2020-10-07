@@ -6,6 +6,7 @@ Falta o por hacer:
 - Resolver: el twit en pantallas pequeñas se sale de su contenedor
 - Resolver: con los mensajes de wsp se necesita diferenciar si el arhivo multimedia es una imagen o video, dependiendo de esto crear un componente adecuando, por ahora solo
 existe el componente para video.
+- Resolver: acumular los mensajes de un mismo numero wsp en el mismo documento de su primer mensaje.
 - Guardar mensajes favoritos
 - Crear una vista donde se podra visualizar los mensajes favoritos
 
