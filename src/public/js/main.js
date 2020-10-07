@@ -106,6 +106,8 @@ socket.on("new message", (data) => {
   messagesList.prepend(li);
 });
 
+
+//* SOCKET PARA TWEETS
 socket.on("tweet", (tweet) => {
   console.log("tweet ->");
   console.log(tweet.tweet);

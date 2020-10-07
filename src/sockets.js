@@ -26,7 +26,7 @@ const connection = (server) => {
     stream.on("tweet", function (tweet) {
     //  console.log("VARIABLE MENSAJE: " + idmensaje)
       //console.log("ID DEL TWEET: " + tweet.id_str)
-      if(tweet.id_str !== idmensaje){
+      if(tweet.id_str){
        // console.log("Estoy emitiendo")
         io.emit("tweet", { tweet: tweet });
         
