@@ -34,7 +34,14 @@ function notifyMe(message = "Hi there") {
 socket.on("new message", (data) => {
   ///const timeago = require("timeago.js");
   notifyMe("Nuevo mensaje de Whatsapp");
+
+
   const messagesList = document.getElementById("messages");
+
+  var d_nested = document.getElementById("NOWSP");
+  if(d_nested){
+    messagesList .removeChild(d_nested);
+  }
   const li = document.createElement("li");
   li.className =
     "list-group-item wspms list-group-item-action";
@@ -105,6 +112,11 @@ socket.on("tweet", (tweet) => {
 
   notifyMe("Nuevo mensaje de Twitter");
   const messagesList = document.getElementById("tweets");
+  var d_nested = document.getElementById("NOTWITTER");
+  if(d_nested){
+    console.log("He entrado para remover EL ELEMENTO")
+    messagesList.removeChild(d_nested);
+  }
   const li = document.createElement("li");
   li.className =
     "list-group-item twims list-group-item-action";

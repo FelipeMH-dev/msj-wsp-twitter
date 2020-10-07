@@ -20,16 +20,27 @@ const connection = (server) => {
   io.on("connection", (newSocket) => {
     socket = newSocket;
     console.log(newSocket.id);
-    var stream = T.stream("statuses/filter", { track: "@FelipeMH93" });
 
+    var stream = T.stream("statuses/filter", { track: "@FelipeMH93" });
+   //   var idmensaje =""
     stream.on("tweet", function (tweet) {
-      
-      io.emit("tweet", { tweet: tweet });
-      console.log(tweet)
+    //  console.log("VARIABLE MENSAJE: " + idmensaje)
+      //console.log("ID DEL TWEET: " + tweet.id_str)
+      if(tweet.id_str !== idmensaje){
+       // console.log("Estoy emitiendo")
+        io.emit("tweet", { tweet: tweet });
+        
+      }
+
+      idmensaje = tweet.id_str
+     // console.log("final: " + idmensaje)
+     
     //  console.log(tweet.entities.media[0].expanded_url)
       // res.render("index", { tweets: tweets });
 
     });
+
+
   });
 };
 

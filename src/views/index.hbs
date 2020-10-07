@@ -1,13 +1,14 @@
 <div class="row">
 
 
-  <div class="col-md-6 ">
+  <div class="col-md-6 mt-1" >
     <div class="card card-body rounded bg-dark text-white">
       <p class="card-text"><i class="far fa-comment text-success"></i> Mensajes de Whatsapp:
         <em >{{messages.length}}</em></p>
     </div>
+     <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="messages">
     {{#if messages}}
-    <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="messages">
+   
 
       {{#each messages}}
       <li class="list-group-item fondowsp list-group-item-action">
@@ -37,27 +38,28 @@
         </div>
       </li>
       {{/each}}
-    </ul>
+    
     {{else}}
-    <div class="card">
+      <li class="list-group-item fondowsp list-group-item-action" id="NOWSP">
+         <div class="card">
       <div class="card-body text-white bg-warning">
         <p class="text-center"><i class="fas fa-comment-slash"></i> No tienes mensajes</p>
       </div>
     </div>
+      </li>
+   
 
     {{/if}}
+    </ul>
   </div>
 
-  <div class="col-md-6 ">
+  <div class="col-md-6 mt-1" >
     <div class="card card-body rounded bg-dark text-white">
       <p class="card-text"> <i class="far fa-comment text-info"></i> Mensajes de Twitter: <em>{{tweets.length}}</em></p>
 
     </div>
+     <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="tweets">
     {{#if tweets}}
-
-
-    <ul class="list-group" style="height: 70vh; overflow-y: auto;" id="tweets">
-    
 
       {{#each tweets}}
       <li class="list-group-item fondotwit list-group-item-action">
@@ -86,13 +88,16 @@
 
       </li>
       {{/each}}
-    </ul>
+   
     {{else}}
-    <div class="card">
+    <li class="list-group-item fondotwit list-group-item-action" id="NOTWITTER">
+    <div class="card" >
       <div class="card-body text-white bg-warning">
         <p class="text-center"><i class="fas fa-comment-slash"></i> No tienes mensajes</p>
       </div>
     </div>
+  </li>
     {{/if}}
+     </ul>
   </div>
 </div>

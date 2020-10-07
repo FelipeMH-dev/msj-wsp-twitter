@@ -32,7 +32,7 @@ const indexController = async (req, res) => {
   });*/
   // Find all saved messages
   const messages = await SMS.find().sort("-createdAt").lean();
-  console.log(messages);
+  //console.log(messages);
 
   for (let i = 0; i <= messages.length - 1; i++) {
     if (messages[i].Media) {
@@ -55,7 +55,7 @@ const indexController = async (req, res) => {
       }
     }
   }
-  console.log(tweets);
+  //console.log(tweets);
   //const tweets = await TWEET.find().sort("-createdAt").lean()
   // console.log("valor de tweet fuera" + tweets);
   res.render("index", { messages: messages, tweets: tweets });
@@ -70,7 +70,7 @@ const postMessage = async (req, res) => {
   const result = await sendMessage(message, phone);
 
   // log the SMS id
-  console.log(result.sid);
+  //console.log(result.sid);
 
   // Saving the SMS in database
   await SMS.create({ Body: req.body.message, From: req.body.phone });
@@ -82,7 +82,7 @@ const receiveMessage = async (req, res) => {
   const twiml = new MessagingReponse();
 
   // Receiving the SMS
-  console.log(req.body);
+  //console.log(req.body);
   // console.log(req.body.From)
   if (req.body.MediaUrl0) {
     try{
@@ -124,8 +124,8 @@ const receiveMessage = async (req, res) => {
 };
 
 const receiveTweet = async (req, res) => {
-  console.log("He entrado aqui");
-  console.log(req.body);
+  //console.log("He entrado aqui");
+  //console.log(req.body);
   if (req.body.Url) {
     const savedTweet = await TWEET.create({
       User: req.body.User,
