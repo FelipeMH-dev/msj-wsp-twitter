@@ -2,8 +2,8 @@
 Prototipo recolector de mensajes en tiempo real de WHATSAPP y TWITTER
 
 Falta o por hacer:
-- IMPORTANTE al no haber mensajes no se pintaran en pantalla: en arreglo
-- Resolver problema de socket, al recibir twit emite mas de lo que deberia y repite el mismo mensaje
+- Resolver: problema de socket, al recibir twit emite mas de lo que deberia y repite el mismo mensaje
+- Resolver: el twit en pantallas pequeñas se sale de su contenedor
 - Guardar mensajes favoritos
 - Crear una vista donde se podra visualizar los mensajes favoritos
 
