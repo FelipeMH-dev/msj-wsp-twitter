@@ -2,7 +2,10 @@
 Prototipo recolector de mensajes en tiempo real de WHATSAPP y TWITTER
 
 Falta o por hacer:
-- Resolver problema de socket, al recibir twit emite mas de lo que deberia y repite el mismo mensaje
+- Resolver: problema de socket, al recibir twit emite mas de lo que deberia y repite el mismo mensaje
+- Resolver: el twit en pantallas pequeñas se sale de su contenedor
+- Resolver: con los mensajes de wsp se necesita diferenciar si el arhivo multimedia es una imagen o video, dependiendo de esto crear un componente adecuando, por ahora solo
+existe el componente para video.
 - Guardar mensajes favoritos
 - Crear una vista donde se podra visualizar los mensajes favoritos
 
