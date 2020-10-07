@@ -161,41 +161,41 @@ messagesList.prepend(li);
   }else{
     console.log("entre aqui")
 
-const blockquote = document.createElement("blockquote");
-blockquote.className="twitter-tweet"
+    const blockquote = document.createElement("blockquote");
+    blockquote.className="twitter-tweet"
 
-const pb = document.createElement("p");
-pb.lang = "es"
-pb.dir ="ltr"
+    const pb = document.createElement("p");
+    pb.lang = "es"
+    pb.dir ="ltr"
 
-const ab1 = document.createElement("a");
-ab1.href  = "https://twitter.com/" + tweet.tweet.user.screen_name + "/status/ " +tweet.tweet.id_str;
-pb.appendChild(ab1)
-blockquote.appendChild(pb)
+    const ab1 = document.createElement("a");
+    ab1.href  = "https://twitter.com/" + tweet.tweet.user.screen_name + "/status/" +tweet.tweet.id_str;
+    pb.appendChild(ab1)
+    blockquote.appendChild(pb)
 
-cardBody.appendChild(blockquote)
-const script =document.createElement("script")
-script.async;
-script.src = "https://platform.twitter.com/widgets.js"
-cardBody.appendChild(script)
-card.appendChild(cardBody)
-li.appendChild(card)
-messagesList.prepend(li);
+    cardBody.appendChild(blockquote)
+    const script =document.createElement("script")
+    script.async;
+    script.src = "https://platform.twitter.com/widgets.js"
+    cardBody.appendChild(script)
+    card.appendChild(cardBody)
+    li.appendChild(card)
+    messagesList.prepend(li);
 
-    $.ajax({
-      method: "POST",
-      url: "http://localhost:3000/tweet",
-      data: JSON.stringify({
-        User: tweet.tweet.user.screen_name,
-        Body: tweet.tweet.text,
-        Userimagen:tweet.tweet.user.profile_image_url_https,
-        IDmensaje:tweet.tweet.id_str
-     
-      }),
-      contentType: "application/json",
-    });
-  }
- 
+        $.ajax({
+          method: "POST",
+          url: "http://localhost:3000/tweet",
+          data: JSON.stringify({
+            User: tweet.tweet.user.screen_name,
+            Body: tweet.tweet.text,
+            Userimagen:tweet.tweet.user.profile_image_url_https,
+            IDmensaje:tweet.tweet.id_str
+        
+          }),
+          contentType: "application/json",
+        });
+      }
+    
 });
 
 
