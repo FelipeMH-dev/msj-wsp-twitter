@@ -10,7 +10,10 @@ const newSchema = new Schema({
   },
   Media:{
     type: String
-  }
+  },
+  Hashmedia:{
+    type:String
+  },
 }, {
   timestamps: true
 });

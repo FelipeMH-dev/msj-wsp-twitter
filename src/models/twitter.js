@@ -22,8 +22,10 @@ const newSchema = new Schema({
   },
   IDmensaje:{
     type:String
-  }
- 
+  },
+  Hashmedia:{
+    type:String
+  },
 }, {
   timestamps: true
 });

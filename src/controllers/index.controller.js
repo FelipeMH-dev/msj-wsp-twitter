@@ -5,7 +5,8 @@ const MessagingReponse = require("twilio").twiml.MessagingResponse;
 //var tvd = require('twitter-video-downloader');
 const { getSocket } = require("../sockets");
 
-var exif = require('exiftool');
+var exif = require("exiftool");
+var async = require("async");
 const fs = require("fs");
 const request = require("request");
 
@@ -16,29 +17,21 @@ process.stdin.on("data", function (data) {
   console.log(body);
 }); */
 
-const indexController = async (req, res) => {
+const ffmpeg = require("@ffmpeg-installer/ffmpeg");
+const ffprobe = require("@ffprobe-installer/ffprobe");
 
- /* fs.readFile('./videos/videodeprueba.mp4', function (err, data) {
-    if (err)
-      throw err;
-    else {
-      exif.metadata(data, function (err, metadata) {
-        if (err)
-          throw err;
-        else
-          console.log(metadata);
-      });
-    }
-  });*/
+const vHash = require("video-hash")({
+  ffmpegPath: ffmpeg.path,
+  ffprobePath: ffprobe.path,
+});
+
+const indexController = async (req, res) => {
   // Find all saved messages
   const messages = await SMS.find().sort("-createdAt").lean();
   //console.log(messages);
 
   for (let i = 0; i <= messages.length - 1; i++) {
     if (messages[i].Media) {
-      request(messages[i].Media).pipe(
-        fs.createWriteStream("videos/" + i + ".mp4")
-      );
     }
   }
 
@@ -78,40 +71,89 @@ const postMessage = async (req, res) => {
   res.redirect("/");
 };
 
+async function guardarvideo(video, smsid) {
+  try {
+    console.log("estoy descargo"); //`cb` is shorthand for "callback"
+
+    request(video).pipe(fs.createWriteStream("videos/" + smsid + ".mp4"));
+    console.log("termine de descargar");
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+async function crearHash(videoPath) {
+  const video = vHash.video(videoPath);
+  console.log(videoPath);
+  try {
+    let hash = await video.hash();
+    console.log(hash);
+    let metadata = await video.metadata();
+    console.log(metadata);
+    console.log("este es el hash del video: " + hash);
+    return hash;
+  } catch (err) {
+    throw err;
+  }
+}
+
+//crearHash("https://twitter.com/FelipeMH93/status/1313662293230657539/video/1")
+
 const receiveMessage = async (req, res) => {
   const twiml = new MessagingReponse();
 
-  // Receiving the SMS
   //console.log(req.body);
   // console.log(req.body.From)
   if (req.body.MediaUrl0) {
-    try{
-    // Saving the SMS in database
-    const savedSMS = await SMS.create({
-      Body: req.body.Body,
-      From: req.body.From,
-      Media: req.body.MediaUrl0,
+
+  let hash =  await crearHash(req.body.MediaUrl0)
+      if(hash){
+
+        const msjrepetido = await SMS.find({Hashmedia:hash});
+        if(msjrepetido){
+          console.log("mensaje repetido")
+        }else{
+          
+        const savedSMS = await SMS.create({
+          Body: req.body.Body,
+          From: req.body.From,
+          Media: req.body.MediaUrl0,
+          Hashmedia: hash,
+        });
+
+        //emite un evento con el mensaje
+        getSocket().emit("new message", savedSMS);
+        }
+
+
+      }
+
+  
+    /*
+    fs.readFile('./videos/' + req.body.SmsSid + '.mp4', function (err, data) {
+      if (err)
+        throw err;
+      else {
+        exif.metadata(data, function (err, metadata) {
+          if (err)
+            throw err;
+          else
+            console.log(metadata);
+        });
+      }
     });
-
-    //emite un evento con el mensaje
-    getSocket().emit("new message", savedSMS); 
-    }catch(e){
-      console.log(e)
-    }
-   
+ */
   } else {
-
-    try{
+    try {
       const savedSMS = await SMS.create({
         Body: req.body.Body,
         From: req.body.From,
       });
       getSocket().emit("new message", savedSMS);
-
-    }catch(e){
-      console.log(e)
+    } catch (e) {
+      console.log(e);
     }
-   
   }
 
   res.writeHead(200, { "Content-Type": "text/xml" });
